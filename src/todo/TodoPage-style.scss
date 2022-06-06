@@ -1,0 +1,116 @@
+@import "/src/style/mixins.scss";
+
+body{
+    background: $color-magenta;
+    padding: 15px;
+    font-family: $font-Inter, $font-Lato;
+
+}
+.container{
+    max-width: 1040px;
+    margin: 0 auto;
+}
+.todoform{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    
+    input{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        color: white;
+        height: 40px;
+        font-size: 25px;
+
+        &[type="text"]{
+            position: relative;
+            padding: 0 15px;
+            width: 50%;
+            border: 2px solid #ffffff25;
+            border-bottom: 2px solid #fff;
+            border-radius: 10px;
+            background: transparent;
+            outline: none;
+            transition: .3s;
+
+            &:hover{
+                border: 2px solid #fff;
+                transition: .3s;
+            }
+            &:focus{
+                border: 2px solid lightblue;
+            }
+        }
+        &[type="submit"]{
+            font-weight: 600;
+            background: $color-magentaBlue;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 300px;
+            transition: .3s;
+            cursor: pointer;
+
+            &:hover{
+                box-shadow: inset #ffffff10 0px 0px 0px 100px;
+                transition: .3s;
+            }
+        }    
+    }
+
+    
+    
+}
+.nothing{
+    color: #fff;
+    margin-top: 100px;
+    text-align: center
+}
+.todolist{
+    width: 100%;
+    padding: 50px 0;
+    border-radius: 30px;
+    list-style: none;
+    background: $color-magentaBlue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    &__item{
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 90%;
+        min-height: 90px;
+        background: $color-orange;
+        border-radius: 10px;
+        color: #fff;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &_title{
+            box-sizing: border-box;
+            margin: 0;
+            line-height: normal;
+            width: 100%;
+            padding-left: 15px;
+            font-size: 25px;
+            letter-spacing: 2px;
+            user-select: none;
+            word-wrap: break-word;
+        }
+        &.completed{
+            box-shadow: #00000030 0px 0px 0px 100px inset;
+            transition: .3s;
+        }
+        &.completed>&_title{
+            text-decoration: line-through;
+            transition: .3s;
+        }
+    }
+}

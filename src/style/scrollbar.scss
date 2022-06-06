@@ -1,0 +1,13 @@
+@import './mixins.scss';
+::-webkit-scrollbar{
+    background: transparent;
+    &-thumb{
+        background: $color-yellow;
+        border-radius: 45px;
+
+        &:hover{
+            box-shadow:  #00000025 inset 0px 0px 0px 10px;
+            transition: 1s;
+        }
+    }
+}
