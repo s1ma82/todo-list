@@ -1,7 +1,7 @@
 import { TodoType } from "./type";
 
 function sort(todos){
-    const completedArr = todos.filter(todo => todo["completed"]).sort((a, b) => a["id"] > b["id"] ? 1 : -1);
+    const completedArr = todos.filter(todo => todo["completed"]).sort((a, b) => a["completedID"] < b["completedID"] ? 1 : -1);
     const noCompletedArr = todos.filter(todo => !todo["completed"])
     const res = [...noCompletedArr, ...completedArr]
     localStorageRefresh(res)
@@ -17,8 +17,9 @@ const todoSubmit = (state, payload) =>{
         return sort(newArr)
 }
 const todoComplete = (state, payload) => {
+    const completedID = Date.now()
     const {id} = payload
-    const modArr = state.map(i => i["id"] === id ? {...i, completed: true} : i )
+    const modArr = state.map(i => i["id"] === id ? {...i, completed: true, completedID} : i )
     const sortedData = sort(modArr)
     return sortedData 
 }

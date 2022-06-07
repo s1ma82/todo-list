@@ -7,6 +7,8 @@ import TodoItem from './TodoItem';
 const TodoList = ({todos}) => {
     const dispatch = useDispatch()
     useEffect(() => {
+        if(!localStorage.getItem("init")) return localStorage.clear()
+        localStorage.setItem("init", "true")
         const data = localStorage.length !== 0 ? JSON.parse(localStorage.getItem('todos')) : ["todo"]
         dispatch(todo.enter({arr: data}))
     }, [dispatch])
