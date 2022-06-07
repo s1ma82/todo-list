@@ -16,7 +16,7 @@ const todoSubmit = (state, payload) =>{
         const newArr = [...[payload], ...state]
         return sort(newArr)
 }
-const todoComplete = async (state, payload) => {
+const todoComplete = (state, payload) => {
     const {id} = payload
     const modArr = state.map(i => i["id"] === id ? {...i, completed: true} : i )
     const sortedData = sort(modArr)
